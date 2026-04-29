@@ -1,0 +1,40 @@
+/* إعدادات مشتركة لكل الروابط عشان تصير بلوك عريض وتتوسط */
+.link-one, .link-two, .link-three {
+    display: block; /* هذا اللي يخليها تمتد بعرض الشاشة */
+    text-align: center;
+    padding: 20px;
+    text-decoration: underline; /* إضافة الخط تحت النص زي صورة اللاب */
+    font-size: 18px;
+}
+
+/* الرابط الأول: خلفية خضراء فاتحة ونص أحمر */
+.link-one {
+    background-color: #a8f0b6;
+    color: red;
+}
+
+/* الرابط الثاني: خلفية رمادية غامقة ونص أصفر */
+.link-two {
+    background-color: #4a4a4a;
+    color: yellow;
+}
+
+/* الرابط الثالث: خلفية سوداء ونص أبيض */
+.link-three {
+    background-color: #000000;
+    color: white;
+}
+/* تنسيق عنوان صفحة القوائم */
+.list-title {
+    background-color: #5f9ea0; /* لون أزرق مخضر (Teal) */
+    color: white;
+    padding: 15px;
+}
+.format-title {
+    text-align: left;
+    color: darkgreen;
+    background-color: beige; /* هذا هو اللون المطلوب */
+    padding: 10px;
+}
+/* تنسيق عنوان صفحة التنسيقات */
+

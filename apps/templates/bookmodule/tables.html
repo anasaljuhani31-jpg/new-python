@@ -1,0 +1,67 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block title %} Tables Page {% endblock title %}
+
+{% block content %}
+    <div style="text-align: center; margin-bottom: 20px;">
+        <h2>جامعة القصيم Qassim University</h2>
+        <h3>كلية الحاسب | College of Computer</h3>
+    </div>
+
+    <div style="text-align: center;">
+        <h4 style="margin-bottom: 5px;">Table 1: Table<br>of Fruits and<br>Their Prices</h4>
+        <table border="1" style="margin: 0 auto; text-align: center;">
+            <tr>
+                <th>Fruit</th>
+                <th>Price</th>
+            </tr>
+            <tr><td>Apple</td><td>$0.25</td></tr>
+            <tr><td>Orange</td><td>$0.50</td></tr>
+            <tr><td>Banana</td><td>$1.00</td></tr>
+            <tr><td>Pineapple</td><td>$2.00</td></tr>
+            <tr><th>Total</th><th>$3.75</th></tr>
+        </table>
+    </div>
+
+    <br><br>
+
+    <div style="text-align: center;">
+        <h4 style="margin-bottom: 5px;">Table 2: A more complex sample table</h4>
+        <table border="1" style="margin: 0 auto; border-collapse: collapse; text-align: center;">
+            <tr>
+                <th rowspan="2" style="padding: 0;">
+                    <img src="{% static 'desert.jpg' %}" alt="Desert" width="250" height="150" style="display: block;">
+                </th>
+                <th colspan="4" style="padding: 15px;">Camelid comparison<br>Approximate as of 6/2011</th>
+            </tr>
+            <tr>
+                <th style="padding: 10px;"># of humps</th>
+                <th style="padding: 10px;">Indigenous region</th>
+                <th style="padding: 10px;">Spits?</th>
+                <th style="padding: 10px;">Produces wool?</th>
+            </tr>
+            <tr>
+                <th style="padding: 10px;">Dromedary</th>
+                <td>1</td>
+                <td>Arabian Peninsula</td>
+                <td>Yes</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <th style="padding: 10px;">Camels (bactrian)</th>
+                <td>2</td>
+                <td>Africa/Asia</td>
+                <td>Yes</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <th style="padding: 10px;">Llamas</th>
+                <td>1</td>
+                <td>Andes Mountains</td>
+                <td>Yes</td>
+                <td>Yes</td>
+            </tr>
+        </table>
+    </div>
+{% endblock content %}
