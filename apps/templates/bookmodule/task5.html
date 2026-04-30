@@ -1,0 +1,17 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Lab 8 - Task 5 {% endblock title %}
+
+{% block content %}
+    <div style="margin: 20px;">
+        <h2>Books Statistics</h2>
+        <hr>
+        <ul style="font-size: 18px; line-height: 1.8;">
+            <li><strong>Total Number of Books:</strong> {{ stats.total_books }}</li>
+            <li><strong>Total Price of All Books:</strong> ${{ stats.total_price }}</li>
+            <li><strong>Average Price:</strong> ${{ stats.avg_price|floatformat:2 }}</li>
+            <li><strong>Maximum Price:</strong> ${{ stats.max_price }}</li>
+            <li><strong>Minimum Price:</strong> ${{ stats.min_price }}</li>
+        </ul>
+    </div>
+{% endblock content %}

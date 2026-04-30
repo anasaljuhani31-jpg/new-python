@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse # تأكد من وجود هذا السطر
 from .models import Book
-
+from django.db.models import Q
+from django.db.models import Count, Sum, Avg, Max, Min
+from .models import Book, Address, Student
 def index(request):
  return render(request, "bookmodule/index.html")
 def list_books(request):
@@ -69,3 +71,48 @@ def complex_query(request):
         return render(request, 'bookmodule/bookList.html', {'books': mybooks})
     else:
         return render(request, 'bookmodule/index.html')
+    
+#lab 8
+
+def task1(request):
+    # نفلتر الكتب اللي سعرها أقل من أو يساوي 80
+    mybooks = Book.objects.filter(Q(price__lte=80.0))
+    return render(request, 'bookmodule/task1.html', {'books': mybooks})
+
+
+def task2(request):
+    # الطبعة أعلى من 3 وَ (العنوان فيه qu أو المؤلف فيه qu)
+    mybooks = Book.objects.filter(
+        Q(edition__gt=3) & (Q(title__icontains='	Con') | Q(author__icontains='	Con'))
+    )
+    return render(request, 'bookmodule/task2.html', {'books': mybooks})
+
+def task3(request):
+    # استخدام علامة ~ للنفي (NOT)
+    mybooks = Book.objects.filter(
+        ~Q(edition__gt=3) & ~(Q(title__icontains='	Con') | Q(author__icontains='	Con'))
+    )
+    return render(request, 'bookmodule/task3.html', {'books': mybooks})
+
+def task4(request):
+    # جلب كل الكتب وترتيبها حسب العنوان (title)
+    mybooks = Book.objects.all().order_by('title')
+    return render(request, 'bookmodule/task4.html', {'books': mybooks})
+
+
+def task5(request):
+    # استخدام دوال التجميع (Aggregation) لحساب الإحصائيات المطلوبة
+    stats = Book.objects.aggregate(
+        total_books=Count('id'),
+        total_price=Sum('price'),
+        avg_price=Avg('price'),
+        max_price=Max('price'),
+        min_price=Min('price')
+    )
+    return render(request, 'bookmodule/task5.html', {'stats': stats})
+
+
+def task7(request):
+    # نجيب كل المدن ونحسب عدد الطلاب المرتبطين بكل مدينة
+    cities_stats = Address.objects.annotate(student_count=Count('student'))
+    return render(request, 'bookmodule/task7.html', {'stats': cities_stats})

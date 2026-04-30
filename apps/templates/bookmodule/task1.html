@@ -1,0 +1,17 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Lab 8 - Task 1 {% endblock title %}
+
+{% block content %}
+    <div style="margin: 20px;">
+        <h2>Books with price <= $80</h2>
+        <hr>
+        <ul>
+            {% for book in books %}
+                <li><strong>Title:</strong> {{ book.title }} - <strong>Price:</strong> ${{ book.price }}</li>
+            {% empty %}
+                <p style="color: red;">No books found with a price of $80 or less.</p>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock content %}
